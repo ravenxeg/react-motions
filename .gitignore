@@ -1,0 +1,10 @@
+node_modules
+dist
+.turbo
+*.log
+.DS_Store
+.env
+.env.*
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
