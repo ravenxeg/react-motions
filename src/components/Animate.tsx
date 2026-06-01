@@ -1,21 +1,8 @@
 "use client";
 
-import {
-	HTMLMotionProps,
-	motion,
-	Target,
-	Transition,
-	Variant,
-} from "motion/react";
+import { HTMLMotionProps, motion, Transition } from "motion/react";
 import React from "react";
-
-export interface AnimationDefinition {
-	initial?: Target | string;
-	animate?: Target | string;
-	exit?: Target | string;
-	variants?: Record<string, Variant>;
-	transition?: Transition;
-}
+import { AnimationDefinition } from "../types";
 
 export interface AnimateProps extends Omit<
 	HTMLMotionProps<"div">,
