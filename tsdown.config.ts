@@ -11,7 +11,7 @@ export default defineConfig({
 	dts: true,
 	clean: true,
 	unbundle: false, // bundle: true was deprecated
-	platform: "node",
+	platform: "neutral",
 	deps: {
 		neverBundle: [
 			"react",
