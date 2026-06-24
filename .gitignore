@@ -1,5 +1,4 @@
 node_modules
-dist
 .turbo
 *.log
 .DS_Store
@@ -8,3 +7,4 @@ dist
 package-lock.json
 yarn.lock
 pnpm-lock.yaml
+bun.lock
