@@ -1,47 +1,34 @@
-# react-motions ⚡️
+# react-motions
 
-A boilerplate wrapper for `motion/react` (the new, standalone package for Framer Motion) featuring a **unified animation API**. Tailored for full Next.js compatibility and optimized for fast production builds.
-
-Instead of maintaining a separate component for every movement, `react-motions` provides a single base `<Animate>` component. You simply import lightweight animation functions, customize them on the fly, and pass them directly as props.
-
----
+Predefined premium animations for Next.js and React powered by motion/react.
 
 ## Features
 
 - **Next.js Ready**: Automatically preserves `"use client"` directives for seamless App Router integration.
-- **Modern Bundling**: Generates super lightweight ESM, CommonJS, and TypeScript typings using `tsup`.
+- **Modern Bundling**: Generates super lightweight ESM, CommonJS, and TypeScript typings using `tsdown`.
 - **Unified API**: A single `<Animate>` component maps customizable motion definitions (fade, scale, stagger, scroll triggers) to motion targets.
 - **Awesome Presets**: Includes high-end, premium layout transitions (blur transitions, 3D flips, mask reveals, and springy bounces).
 - **Micro-interactions**: Standardized premium spring elements (e.g. `Magnetic` cursor pulls).
 
----
+## Installation
 
-## Installation (Private Repository)
-
-Since `react-motions` is hosted as a private repository, you can install it directly into your main Next.js project using `pnpm` in one of the following ways:
-
-### Method 1: Using HTTPS and a Personal Access Token (PAT)
-If you are deploying on Vercel, Netlify, or in CI/CD pipelines, configure your dependencies to pull via HTTPS using a GitHub token:
 ```bash
-pnpm add git+https://<TOKEN>@github.com/<USERNAME>/react-motions.git
+npm install @ravenxeg/react-motions
 ```
 
-### Method 2: Using SSH (Recommended for Local Dev)
-Ensure your SSH key is added to your GitHub account, then run:
+or with pnpm:
+
 ```bash
-pnpm add git+ssh://git@github.com:<USERNAME>/react-motions.git
+pnpm add @ravenxeg/react-motions
 ```
 
----
-
-## Pre-requisites
+### Pre-requisites
 
 Make sure your target Next.js app has the core libraries installed:
+
 ```bash
 pnpm add motion react react-dom
 ```
-
----
 
 ## The Unified API: `<Animate>`
 
@@ -61,8 +48,6 @@ All standard HTML `div` properties (such as `className`, `id`, `style`) alongsid
 | `once` | `boolean` | `true` | Whether the viewport trigger runs only once |
 | `margin` | `string` | `"-50px"` | Viewport intersection margin offset |
 
----
-
 ## Animation Presets
 
 ### 1. `animateInView`
@@ -77,7 +62,7 @@ Recreates your original scroll-triggered default entrance. It fades and slides u
 
 **Example:**
 ```tsx
-import { Animate, animateInView } from "react-motions";
+import { Animate, animateInView } from "@ravenxeg/react-motions";
 
 export default function MyComponent() {
   return (
@@ -95,14 +80,14 @@ export default function MyComponent() {
 A highly configurable slide-and-fade animation.
 
 **Preset Parameters:**
-- `direction?: "up" | "down" | "left" | "right" | "none"` (default `"up"`) - Entrance direction.
+- `direction?: "up" \| "down" \| "left" \| "right" \| "none"` (default `"up"`) - Entrance direction.
 - `distance?: number` (default `20`) - Offset displacement in pixels.
 - `duration?: number` (default `0.5`) - Default animation length.
-- `ease?: string | number[]` (default `"easeOut"`) - Easing equation.
+- `ease?: string \| number[]` (default `"easeOut"`) - Easing equation.
 
 **Example:**
 ```tsx
-import { Animate, fadeIn } from "react-motions";
+import { Animate, fadeIn } from "@ravenxeg/react-motions";
 
 export default function HeroSection() {
   return (
@@ -111,7 +96,7 @@ export default function HeroSection() {
       <Animate animation={fadeIn({ direction: "down" })} inView={false} duration={0.8}>
         <h1>Premium Web Design</h1>
       </Animate>
-      
+
       {/* Animates up on scroll with custom delay override */}
       <Animate animation={fadeIn({ direction: "up", distance: 35 })} delay={0.25}>
         <p>Elevate your Next.js application with ready-to-use animations.</p>
@@ -127,11 +112,11 @@ A smooth zoom entrance animation. Excellent for cards, grid features, buttons, o
 **Preset Parameters:**
 - `initialScale?: number` (default `0.95`) - Starting scale ratio.
 - `duration?: number` (default `0.4`) - Default animation length.
-- `ease?: string | number[]` (default `"easeOut"`) - Easing equation.
+- `ease?: string \| number[]` (default `"easeOut"`) - Easing equation.
 
 **Example:**
 ```tsx
-import { Animate, scaleIn } from "react-motions";
+import { Animate, scaleIn } from "@ravenxeg/react-motions";
 
 export default function Grid() {
   return (
@@ -142,18 +127,18 @@ export default function Grid() {
 }
 ```
 
-### 4. `blurIn` *(Premium)*
+### 4. `blurIn`
 An Apple-style landing page transition that starts blurred and slightly scaled down, smoothly fading and focusing into place.
 
 **Preset Parameters:**
 - `initialBlur?: number` (default `10`) - Starting blur size in pixels.
 - `initialScale?: number` (default `0.98`) - Starting scale ratio.
 - `duration?: number` (default `0.6`) - Default animation length.
-- `ease?: string | number[]` (default `"easeOut"`) - Easing equation.
+- `ease?: string \| number[]` (default `"easeOut"`) - Easing equation.
 
 **Example:**
 ```tsx
-import { Animate, blurIn } from "react-motions";
+import { Animate, blurIn } from "@ravenxeg/react-motions";
 
 export default function HeroText() {
   return (
@@ -164,17 +149,17 @@ export default function HeroText() {
 }
 ```
 
-### 5. `clipReveal` *(Premium)*
+### 5. `clipReveal`
 A mask reveal effect utilizing the CSS `clipPath` property. Content slides out smoothly from behind an invisible rectangular boundary (mask).
 
 **Preset Parameters:**
-- `direction?: "up" | "down" | "left" | "right"` (default `"up"`) - The direction from which the content reveals.
+- `direction?: "up" \| "down" \| "left" \| "right"` (default `"up"`) - The direction from which the content reveals.
 - `duration?: number` (default `0.6`) - Length of the reveal.
-- `ease?: string | number[]` (default `[0.16, 1, 0.3, 1]`) - Default high-end exponential easing.
+- `ease?: string \| number[]` (default `[0.16, 1, 0.3, 1]`) - Default high-end exponential easing.
 
 **Example:**
 ```tsx
-import { Animate, clipReveal } from "react-motions";
+import { Animate, clipReveal } from "@ravenxeg/react-motions";
 
 export default function MaskedTitle() {
   return (
@@ -187,7 +172,7 @@ export default function MaskedTitle() {
 }
 ```
 
-### 6. `bounceIn` *(Premium)*
+### 6. `bounceIn`
 An elastic bounce entrance using Framer Motion spring physics. Ideal for interactive buttons, badge alerts, or CTA modules.
 
 **Preset Parameters:**
@@ -197,7 +182,7 @@ An elastic bounce entrance using Framer Motion spring physics. Ideal for interac
 
 **Example:**
 ```tsx
-import { Animate, bounceIn } from "react-motions";
+import { Animate, bounceIn } from "@ravenxeg/react-motions";
 
 export default function Badge() {
   return (
@@ -208,17 +193,17 @@ export default function Badge() {
 }
 ```
 
-### 7. `flip` *(Premium)*
+### 7. `flip`
 A stunning 3D perspective flip card entrance rotating on the X or Y axis as it fades in.
 
 **Preset Parameters:**
-- `axis?: "x" | "y"` (default `"y"`) - The axis to flip along.
+- `axis?: "x" \| "y"` (default `"y"`) - The axis to flip along.
 - `duration?: number` (default `0.6`) - Transition duration.
-- `ease?: string | number[]` (default `"easeOut"`) - Easing equation.
+- `ease?: string \| number[]` (default `"easeOut"`) - Easing equation.
 
 **Example:**
 ```tsx
-import { Animate, flip } from "react-motions";
+import { Animate, flip } from "@ravenxeg/react-motions";
 
 export default function FlipCard() {
   return (
@@ -232,16 +217,16 @@ export default function FlipCard() {
 }
 ```
 
-### 8. `swingIn` *(Premium)*
+### 8. `swingIn`
 A swinging entrance suspended from a top hinge using 3D perspective tilts. Perfect for menu items or cards.
 
 **Preset Parameters:**
 - `duration?: number` (default `0.8`) - Transition duration.
-- `ease?: string | number[]` (default `"easeOut"`) - Easing equation.
+- `ease?: string \| number[]` (default `"easeOut"`) - Easing equation.
 
 **Example:**
 ```tsx
-import { Animate, swingIn } from "react-motions";
+import { Animate, swingIn } from "@ravenxeg/react-motions";
 
 export default function hangingSign() {
   return (
@@ -257,7 +242,7 @@ Coordinates list items sequentially. The parent wrapper controls stagger math, w
 
 **Example:**
 ```tsx
-import { Animate, staggerContainer, staggerItem } from "react-motions";
+import { Animate, staggerContainer, staggerItem } from "@ravenxeg/react-motions";
 
 export default function FeatureList() {
   const items = ["Fast", "Flexible", "Beautiful", "Typed"];
@@ -274,15 +259,13 @@ export default function FeatureList() {
 }
 ```
 
----
-
 ## Special Components
 
 ### `Magnetic`
 A premium hover micro-interaction utilizing high-fidelity spring physics. Wraps interactive elements (like custom buttons, icons, or social avatars) and gently pulls them toward the cursor on hover.
 
 ```tsx
-import { Magnetic } from "react-motions";
+import { Magnetic } from "@ravenxeg/react-motions";
 
 export default function ActionButtons() {
   return (
@@ -293,25 +276,15 @@ export default function ActionButtons() {
 }
 ```
 
----
+## Local Development
 
-## Local Development Instructions
+```bash
+pnpm install
+pnpm dev      # watch mode
+pnpm build    # production build
+pnpm typecheck
+```
 
-If you wish to make changes to the wrapper library:
+## License
 
-1. **Install dependencies**:
-   ```bash
-   pnpm install
-   ```
-2. **Run in development mode (watch)**:
-   ```bash
-   pnpm dev
-   ```
-3. **Build library for production**:
-   ```bash
-   pnpm build
-   ```
-4. **Run type-checking**:
-   ```bash
-   pnpm typecheck
-   ```
+[Apache 2.0](LICENSE)
