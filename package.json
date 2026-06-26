@@ -1,6 +1,7 @@
 {
 	"name": "@ravenxeg/react-motions",
 	"version": "1.0.0",
+	"packageManager": "pnpm@11.3.0",
 	"description": "Predefined premium animations for Next.js and React powered by motion/react",
 	"main": "./dist/index.js",
 	"module": "./dist/index.mjs",
